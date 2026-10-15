@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Nuestro Universo</title>
 <style>
   /* ======================================================
@@ -16,6 +16,8 @@
     background: #030109;
     font-family: 'Georgia', 'Times New Roman', serif;
     overflow: hidden;
+    position: fixed;
+    inset: 0;
   }
 
   body {
@@ -23,7 +25,7 @@
     align-items: center;
     justify-content: center;
     width: 100vw;
-    height: 100vh;
+    height: 100dvh;
     background: #030109;
   }
 
@@ -33,7 +35,7 @@
   .app-window {
     position: relative;
     width: 100vw;
-    height: 100vh;
+    height: 100dvh;
     border-radius: 0;
     overflow: hidden;
     background: radial-gradient(ellipse at 50% 0%, #170b35 0%, #0c0620 45%, #060312 80%, #030109 100%);
@@ -87,10 +89,10 @@
 
   .distant-galaxy {
     position: absolute;
-    width: 340px;
-    height: 340px;
-    top: 8%;
-    right: -60px;
+    width: 260px;
+    height: 260px;
+    top: 5%;
+    right: -40px;
     border-radius: 50%;
     background:
       conic-gradient(from 40deg,
@@ -133,14 +135,14 @@
     mix-blend-mode: screen;
     animation: nebulaDrift 44s ease-in-out infinite alternate;
   }
-  .nebula.n1 { width: 460px; height: 460px; top: -120px; left: -100px; background: radial-gradient(circle, #6a2ea8, transparent 70%); }
-  .nebula.n2 { width: 420px; height: 420px; bottom: -140px; right: -80px; background: radial-gradient(circle, #2a3ea8, transparent 70%); animation-duration: 58s; }
-  .nebula.n3 { width: 320px; height: 320px; top: 42%; left: 42%; background: radial-gradient(circle, #a82e7e, transparent 70%); animation-duration: 68s; opacity: 0.2; }
-  .nebula.n4 { width: 260px; height: 260px; top: 6%; right: 12%; background: radial-gradient(circle, #2ea892, transparent 70%); animation-duration: 50s; opacity: 0.16; }
+  .nebula.n1 { width: 320px; height: 320px; top: -80px; left: -80px; background: radial-gradient(circle, #6a2ea8, transparent 70%); }
+  .nebula.n2 { width: 300px; height: 300px; bottom: -100px; right: -60px; background: radial-gradient(circle, #2a3ea8, transparent 70%); animation-duration: 58s; }
+  .nebula.n3 { width: 240px; height: 240px; top: 42%; left: 30%; background: radial-gradient(circle, #a82e7e, transparent 70%); animation-duration: 68s; opacity: 0.2; }
+  .nebula.n4 { width: 200px; height: 200px; top: 6%; right: 12%; background: radial-gradient(circle, #2ea892, transparent 70%); animation-duration: 50s; opacity: 0.16; }
 
   @keyframes nebulaDrift {
     from { transform: translate(0, 0) scale(1); }
-    to   { transform: translate(40px, -30px) scale(1.15); }
+    to   { transform: translate(30px, -20px) scale(1.1); }
   }
 
   .vignette {
@@ -214,7 +216,7 @@
     content: '';
     position: absolute;
     top: 0; left: 0;
-    width: 150px;
+    width: 120px;
     height: 1px;
     background: linear-gradient(90deg, rgba(255,255,255,0.9), transparent);
     transform-origin: left center;
@@ -235,7 +237,7 @@
     0% { opacity: 0; transform: translateY(0) scale(0.5); }
     20% { opacity: 0.9; }
     80% { opacity: 0.6; }
-    100% { opacity: 0; transform: translateY(-60px) scale(1.2); }
+    100% { opacity: 0; transform: translateY(-50px) scale(1.2); }
   }
 
   .phrases-layer {
@@ -259,7 +261,7 @@
 
   @keyframes fallDown {
     from { transform: translateY(0); }
-    to   { transform: translateY(720px); }
+    to   { transform: translateY(100vh); }
   }
 
   .planets-layer {
@@ -273,13 +275,14 @@
     animation: floatDrift ease-in-out infinite;
     cursor: pointer;
     will-change: transform;
+    -webkit-tap-highlight-color: transparent;
   }
 
   @keyframes floatDrift {
     0%   { transform: translate(0px, 0px) rotate(0deg); }
-    25%  { transform: translate(calc(var(--dx, 16px) * 0.6), calc(var(--dy, -18px) * 1)) rotate(0.6deg); }
-    50%  { transform: translate(var(--dx, 16px), calc(var(--dy, -18px) * 0.3)) rotate(0deg); }
-    75%  { transform: translate(calc(var(--dx, 16px) * 0.4), calc(var(--dy, -18px) * 0.9)) rotate(-0.6deg); }
+    25%  { transform: translate(calc(var(--dx, 12px) * 0.6), calc(var(--dy, -12px) * 1)) rotate(0.6deg); }
+    50%  { transform: translate(var(--dx, 12px), calc(var(--dy, -12px) * 0.3)) rotate(0deg); }
+    75%  { transform: translate(calc(var(--dx, 12px) * 0.4), calc(var(--dy, -12px) * 0.9)) rotate(-0.6deg); }
     100% { transform: translate(0px, 0px) rotate(0deg); }
   }
 
@@ -289,7 +292,7 @@
     overflow: hidden;
     background-size: cover;
     background-position: center;
-    transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
     animation: spin linear infinite;
   }
 
@@ -300,7 +303,7 @@
     background: radial-gradient(circle at 30% 26%, rgba(255,255,255,0.45), transparent 42%),
                 radial-gradient(circle at 70% 78%, rgba(0,0,0,0.65), transparent 62%),
                 radial-gradient(circle at 50% 50%, transparent 55%, rgba(0,0,0,0.35) 100%);
-    box-shadow: inset 0 0 30px rgba(0,0,0,0.5);
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
     pointer-events: none;
   }
 
@@ -309,7 +312,7 @@
     inset: -3px;
     border-radius: 50%;
     pointer-events: none;
-    box-shadow: 0 0 22px 2px var(--atmo-color, rgba(255,255,255,0.3));
+    box-shadow: 0 0 16px 2px var(--atmo-color, rgba(255,255,255,0.3));
     opacity: 0.55;
     mix-blend-mode: screen;
   }
@@ -320,27 +323,23 @@
     to   { filter: brightness(1) hue-rotate(0deg); }
   }
 
-  .planet-wrap:hover .planet {
-    transform: scale(1.14);
+  .planet-wrap:hover .planet, .planet-wrap:active .planet {
+    transform: scale(1.12);
   }
 
   .planet-wrap.active .planet {
-    transform: scale(1.32);
-    box-shadow: 0 0 34px 6px rgba(255, 255, 255, 0.25);
+    transform: scale(1.25);
+    box-shadow: 0 0 28px 5px rgba(255, 255, 255, 0.3);
   }
   .planet-wrap.active {
     z-index: 90 !important;
   }
-  .planet-wrap.active .planet-glow {
-    opacity: 0.85;
-    transform: scale(1.35);
-  }
 
   .planet-glow {
     position: absolute;
-    inset: -20px;
+    inset: -14px;
     border-radius: 50%;
-    filter: blur(20px);
+    filter: blur(14px);
     opacity: 0.5;
     z-index: -1;
     animation: pulseGlow 3.8s ease-in-out infinite;
@@ -355,7 +354,7 @@
 
   .planet-ring {
     position: absolute;
-    inset: -10px;
+    inset: -8px;
     border: 1px solid rgba(255, 255, 255, 0.16);
     border-radius: 50%;
     pointer-events: none;
@@ -364,49 +363,42 @@
   .saturn-ring {
     position: absolute;
     top: 50%; left: 50%;
-    width: 175%;
-    height: 60%;
+    width: 170%;
+    height: 55%;
     border: 2px solid rgba(255, 235, 200, 0.55);
     border-radius: 50%;
     transform: translate(-50%, -50%) rotate(-18deg);
     pointer-events: none;
-    box-shadow: 0 0 10px rgba(255, 220, 180, 0.25);
-  }
-  .saturn-ring::after {
-    content: '';
-    position: absolute;
-    inset: 6px;
-    border: 1px solid rgba(255, 235, 200, 0.25);
-    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(255, 220, 180, 0.25);
   }
 
   .planet-name {
     position: absolute;
     left: 50%;
-    bottom: -22px;
+    bottom: -18px;
     transform: translateX(-50%);
     font-family: 'Segoe UI', sans-serif;
-    font-size: 11px;
+    font-size: 10px;
     letter-spacing: 0.5px;
-    color: rgba(255, 255, 255, 0.55);
+    color: rgba(255, 255, 255, 0.7);
     white-space: nowrap;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    pointer-events: none;
   }
-  .planet-wrap:hover .planet-name { opacity: 1; }
 
   .modal-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(3, 2, 10, 0.75);
-    backdrop-filter: blur(6px);
+    background: rgba(3, 2, 10, 0.82);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 100;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.35s ease;
+    transition: opacity 0.3s ease;
+    padding: 16px;
   }
 
   .modal-overlay.active {
@@ -416,16 +408,16 @@
 
   .modal-card {
     position: relative;
-    width: 78%;
-    max-width: 460px;
-    background: linear-gradient(160deg, rgba(40, 20, 70, 0.75), rgba(20, 10, 40, 0.85));
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 18px;
-    padding: 28px 26px 32px;
+    width: 90%;
+    max-width: 380px;
+    background: linear-gradient(160deg, rgba(40, 20, 70, 0.9), rgba(20, 10, 40, 0.95));
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 20px;
+    padding: 24px 20px;
     text-align: center;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 60px rgba(180, 100, 220, 0.15);
-    transform: scale(0.85) translateY(20px);
-    transition: transform 0.35s ease;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 50px rgba(180, 100, 220, 0.2);
+    transform: scale(0.85) translateY(15px);
+    transition: transform 0.3s ease;
     overflow: hidden;
   }
 
@@ -435,43 +427,41 @@
 
   .modal-close {
     position: absolute;
-    top: 12px; right: 14px;
-    width: 28px; height: 28px;
+    top: 12px; right: 12px;
+    width: 32px; height: 32px;
     border-radius: 50%;
-    border: 1px solid rgba(255,255,255,0.2);
-    background: rgba(255,255,255,0.05);
-    color: rgba(255,255,255,0.8);
-    font-size: 14px;
+    border: 1px solid rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.9);
+    font-size: 16px;
     cursor: pointer;
     display: flex; align-items: center; justify-content: center;
-    transition: background 0.2s ease;
     z-index: 5;
   }
-  .modal-close:hover { background: rgba(255,255,255,0.15); }
 
   .modal-image-wrap {
-    width: 150px;
-    height: 150px;
-    margin: 6px auto 18px;
+    width: 130px;
+    height: 130px;
+    margin: 4px auto 16px;
     border-radius: 50%;
     overflow: hidden;
-    border: 2px solid rgba(255, 255, 255, 0.25);
-    box-shadow: 0 0 40px rgba(200, 120, 255, 0.35);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 30px rgba(200, 120, 255, 0.4);
     background-size: cover;
     background-position: center;
   }
 
   .modal-title {
-    font-size: 20px;
+    font-size: 18px;
     color: #ffe3f2;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     letter-spacing: 0.5px;
   }
 
   .modal-message {
-    font-size: 15px;
-    line-height: 1.5;
-    color: rgba(255, 255, 255, 0.85);
+    font-size: 14px;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.9);
     font-style: italic;
   }
 
@@ -479,7 +469,6 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    overflow: visible;
   }
 
   .heart-particle {
@@ -493,41 +482,41 @@
   @keyframes heartRise {
     0% { opacity: 0; transform: translateY(0) scale(0.6) rotate(0deg); }
     15% { opacity: 1; }
-    100% { opacity: 0; transform: translateY(-220px) scale(1.1) rotate(20deg); }
+    100% { opacity: 0; transform: translateY(-180px) scale(1.1) rotate(20deg); }
   }
 
   .header-text {
     position: absolute;
-    top: 26px;
+    top: 18px;
     left: 0; right: 0;
     text-align: center;
     z-index: 20;
     pointer-events: none;
+    padding: 0 10px;
   }
 
   .header-text h1 {
-    font-size: 22px;
+    font-size: 18px;
     color: #ffe9f5;
-    text-shadow: 0 0 20px rgba(255, 150, 220, 0.5);
+    text-shadow: 0 0 15px rgba(255, 150, 220, 0.6);
     letter-spacing: 1px;
     font-weight: normal;
   }
 
   .header-text p {
-    margin-top: 6px;
-    font-size: 12px;
-    color: rgba(255,255,255,0.45);
+    margin-top: 4px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.55);
     font-family: 'Segoe UI', sans-serif;
-    letter-spacing: 0.5px;
   }
 
-  @media (max-width: 720px) {
+  @media (max-width: 600px) {
     .header-text h1 { font-size: 16px; }
+    .header-text p { font-size: 10px; }
     .modal-image-wrap { width: 110px; height: 110px; }
-    .planets-layer { transform-origin: 50% 50%; }
-  }
-  @media (min-width: 721px) and (max-width: 1100px) {
-    .planets-layer { transform-origin: 50% 50%; }
+    .modal-card { padding: 20px 16px; }
+    .modal-title { font-size: 16px; }
+    .modal-message { font-size: 13px; }
   }
 </style>
 </head>
@@ -574,8 +563,25 @@
 
 <script>
 // =========================================================================
-// RUTAS DE IMÁGENES LOCALES
-// Asegúrate de tener una carpeta llamada 'imagenes' junto a tu archivo .html
+// MÚSICA DE FONDO AUTOMÁTICA COMPATIBLE CON CELULARES Y GITHUB PAGES
+// =========================================================================
+const bgMusic = document.getElementById('bgMusic');
+
+function reproducirAudio() {
+  if (bgMusic && bgMusic.paused) {
+    bgMusic.play().then(() => {
+      document.removeEventListener('click', reproducirAudio);
+      document.removeEventListener('touchstart', reproducirAudio);
+    }).catch(() => {});
+  }
+}
+
+document.addEventListener('click', reproducirAudio);
+document.addEventListener('touchstart', reproducirAudio);
+
+
+// =========================================================================
+// DATOS DE LOS PLANETAS Y FOTOS LOCALES
 // =========================================================================
 const planetas = [
   { nombre: "Planeta 1",  imagen: "WhatsApp Image 2026-10-07 at 15.25.06 (1).jpeg", mensaje: "Te amo más de lo que  puedo expresar." },
@@ -609,25 +615,6 @@ const frases = [
   "Sos mi persona favorita",
   "Sos la mejor del mundo"
 ];
-
-// =========================================================================
-// MÚSICA DE FONDO AUTOMÁTICA
-// =========================================================================
-const bgMusic = document.getElementById('bgMusic');
-
-// Intentar reproducir de inmediato
-bgMusic.play().catch(() => {
-  // Si el navegador bloquea el autoplay sin interacción,
-  // la música iniciará automáticamente al dar el primer clic en la pantalla.
-  const iniciarAudio = () => {
-    bgMusic.play();
-    document.removeEventListener('click', iniciarAudio);
-    document.removeEventListener('touchstart', iniciarAudio);
-  };
-
-  document.addEventListener('click', iniciarAudio);
-  document.addEventListener('touchstart', iniciarAudio);
-});
 
 const starsLayer = document.getElementById('starsLayer');
 const phrasesLayer = document.getElementById('phrasesLayer');
@@ -676,9 +663,8 @@ function crearEstrellas(cantidad, sizeMin, sizeMax, opacityFactor) {
     starsLayer.appendChild(star);
   }
 }
-crearEstrellas(160, 0.5, 1.1, 0.5);
-crearEstrellas(80, 1, 1.8, 0.75);
-crearEstrellas(30, 1.6, 2.6, 1);
+crearEstrellas(100, 0.5, 1.1, 0.5);
+crearEstrellas(50, 1, 1.8, 0.75);
 
 function crearEstrellasBrillantes(cantidad) {
   for (let i = 0; i < cantidad; i++) {
@@ -699,7 +685,7 @@ function crearEstrellasBrillantes(cantidad) {
     starsLayer.appendChild(s);
   }
 }
-crearEstrellasBrillantes(9);
+crearEstrellasBrillantes(6);
 
 function lanzarMeteorito() {
   const meteor = document.createElement('div');
@@ -710,7 +696,7 @@ function lanzarMeteorito() {
   meteor.style.top = startTop + '%';
   meteor.style.left = startLeft + '%';
 
-  const distancia = 260 + Math.random() * 200;
+  const distancia = 200 + Math.random() * 150;
   const anguloGrados = 28 + Math.random() * 30;
   const rad = anguloGrados * Math.PI / 180;
   const dx = -distancia * Math.cos(rad);
@@ -744,10 +730,10 @@ function crearFrase() {
   p.className = 'phrase';
   p.textContent = '❤ ' + frases[Math.floor(Math.random() * frases.length)];
 
-  const size = Math.random() * 8 + 11;
-  const duration = Math.random() * 12 + 14;
+  const size = Math.random() * 4 + 11;
+  const duration = Math.random() * 10 + 12;
   const left = Math.random() * 80 + 5;
-  const opacity = Math.random() * 0.22 + 0.1;
+  const opacity = Math.random() * 0.2 + 0.1;
 
   p.style.fontSize = size + 'px';
   p.style.left = left + '%';
@@ -757,26 +743,29 @@ function crearFrase() {
   phrasesLayer.appendChild(p);
   setTimeout(() => p.remove(), duration * 1000 + 200);
 }
-setInterval(crearFrase, 1300);
-for (let i = 0; i < 6; i++) {
-  setTimeout(crearFrase, i * 500);
-}
+setInterval(crearFrase, 1800);
 
+// =========================================================================
+// DISTRIBUCIÓN ADAPTATIVA DE PLANETAS
+// =========================================================================
 function generarLayoutPlanetas(cantidad, containerWidth, containerHeight) {
-  const ESPACIO_PERSONAL = 30;
-  const MARGEN_BORDE = 16;
-  const TOPE_SUP = containerHeight * 0.15;
-  const TOPE_INF = containerHeight * 0.90;
+  const esMovil = containerWidth <= 600;
+  const ESPACIO_PERSONAL = esMovil ? 12 : 28;
+  const MARGEN_BORDE = esMovil ? 10 : 20;
+  const TOPE_SUP = containerHeight * (esMovil ? 0.12 : 0.15);
+  const TOPE_INF = containerHeight * (esMovil ? 0.95 : 0.90);
 
   const radios = [];
   for (let i = 0; i < cantidad; i++) {
-    const size = Math.random() * 70 + 80;
+    const minS = esMovil ? 52 : 75;
+    const maxS = esMovil ? 72 : 110;
+    const size = Math.random() * (maxS - minS) + minS;
     radios.push(size / 2);
   }
   const orden = radios.map((r, i) => i).sort((a, b) => radios[b] - radios[a]);
 
   const centros = new Array(cantidad);
-  const maxIntentos = 600;
+  const maxIntentos = 800;
 
   orden.forEach((idx) => {
     const r = radios[idx];
@@ -830,25 +819,20 @@ const layoutPlanetas = generarLayoutPlanetas(planetas.length, universeRect.width
 let planetaActivo = null;
 
 let parallaxX = 0, parallaxY = 0;
-universe.addEventListener('mousemove', (e) => {
+function handleMove(clientX, clientY) {
   const rect = universe.getBoundingClientRect();
-  parallaxX = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
-  parallaxY = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
-});
-
-function escalaPlanetasSegunAncho() {
-  const w = window.innerWidth;
-  if (w <= 720) return 0.62;
-  if (w <= 1100) return 0.85;
-  return 1;
+  parallaxX = ((clientX - rect.left) / rect.width - 0.5) * 2;
+  parallaxY = ((clientY - rect.top) / rect.height - 0.5) * 2;
 }
 
+universe.addEventListener('mousemove', (e) => handleMove(e.clientX, e.clientY));
+universe.addEventListener('touchmove', (e) => {
+  if (e.touches.length > 0) handleMove(e.touches[0].clientX, e.touches[0].clientY);
+}, { passive: true });
+
 (function loopParallax() {
-  const escala = escalaPlanetasSegunAncho();
-  const targetPlanets = `scale(${escala}) translate(${parallaxX * 10}px, ${parallaxY * 6}px)`;
-  const targetStars = `translate(${parallaxX * 4}px, ${parallaxY * 3}px)`;
-  planetsLayer.style.transition = 'transform 0.6s ease-out';
-  starsLayer.style.transition = 'transform 0.6s ease-out';
+  const targetPlanets = `translate(${parallaxX * 8}px, ${parallaxY * 5}px)`;
+  const targetStars = `translate(${parallaxX * 3}px, ${parallaxY * 2}px)`;
   planetsLayer.style.transform = targetPlanets;
   starsLayer.style.transform = targetStars;
   requestAnimationFrame(loopParallax);
@@ -866,12 +850,12 @@ planetas.forEach((data, i) => {
   wrap.style.left = pos.x + '%';
   wrap.style.top = pos.y + '%';
 
-  const driftX = (Math.random() * 26 + 10) * (Math.random() < 0.5 ? -1 : 1);
-  const driftY = -(Math.random() * 16 + 8);
+  const driftX = (Math.random() * 16 + 6) * (Math.random() < 0.5 ? -1 : 1);
+  const driftY = -(Math.random() * 12 + 6);
   wrap.style.setProperty('--dx', driftX + 'px');
   wrap.style.setProperty('--dy', driftY + 'px');
-  wrap.style.animationDuration = (Math.random() * 10 + 14) + 's';
-  wrap.style.animationDelay = (Math.random() * 4) + 's';
+  wrap.style.animationDuration = (Math.random() * 8 + 12) + 's';
+  wrap.style.animationDelay = (Math.random() * 3) + 's';
   wrap.style.zIndex = String(10 + Math.round(size));
 
   const colors = planetColors[i % planetColors.length];
@@ -879,7 +863,6 @@ planetas.forEach((data, i) => {
   const glow = document.createElement('div');
   glow.className = 'planet-glow';
   glow.style.background = `radial-gradient(circle, ${colors[0]}, transparent 70%)`;
-  glow.style.animationDelay = (Math.random() * 2) + 's';
 
   const ring = document.createElement('div');
   ring.className = 'planet-ring';
@@ -898,10 +881,6 @@ planetas.forEach((data, i) => {
     planet.style.backgroundImage = `url("${data.imagen}")`;
   } else {
     planet.style.background = `radial-gradient(circle at 35% 30%, ${colors[0]}, ${colors[1]} 70%)`;
-  }
-
-  if (size < 130) {
-    planet.style.filter = `blur(${((130 - size) / 90).toFixed(2)}px)`;
   }
 
   const shade = document.createElement('div');
@@ -925,14 +904,17 @@ planetas.forEach((data, i) => {
 
   wrap.appendChild(label);
 
-  wrap.addEventListener('click', () => {
+  const accionAbrir = (e) => {
+    e.preventDefault();
     if (planetaActivo && planetaActivo !== wrap) {
       planetaActivo.classList.remove('active');
     }
     wrap.classList.add('active');
     planetaActivo = wrap;
     abrirModal(data);
-  });
+  };
+
+  wrap.addEventListener('click', accionAbrir);
 
   planetsLayer.appendChild(wrap);
 });
@@ -969,7 +951,7 @@ modalOverlay.addEventListener('click', (e) => {
 
 function lanzarCorazones() {
   heartsBurst.innerHTML = '';
-  const cantidad = 14;
+  const cantidad = 12;
   for (let i = 0; i < cantidad; i++) {
     const h = document.createElement('div');
     h.className = 'heart-particle';
