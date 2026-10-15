@@ -569,6 +569,9 @@
 
 </div>
 
+<!-- REPRODUCTOR OCULTO CON AUTOPLAY -->
+<audio id="bgMusic" autoplay loop src="Elliot James Reay - I Think They Call This Love (Official Music Video).mp3"></audio>
+
 <script>
 // =========================================================================
 // RUTAS DE IMÁGENES LOCALES
@@ -606,6 +609,25 @@ const frases = [
   "Sos mi persona favorita",
   "Sos la mejor del mundo"
 ];
+
+// =========================================================================
+// MÚSICA DE FONDO AUTOMÁTICA
+// =========================================================================
+const bgMusic = document.getElementById('bgMusic');
+
+// Intentar reproducir de inmediato
+bgMusic.play().catch(() => {
+  // Si el navegador bloquea el autoplay sin interacción,
+  // la música iniciará automáticamente al dar el primer clic en la pantalla.
+  const iniciarAudio = () => {
+    bgMusic.play();
+    document.removeEventListener('click', iniciarAudio);
+    document.removeEventListener('touchstart', iniciarAudio);
+  };
+
+  document.addEventListener('click', iniciarAudio);
+  document.addEventListener('touchstart', iniciarAudio);
+});
 
 const starsLayer = document.getElementById('starsLayer');
 const phrasesLayer = document.getElementById('phrasesLayer');
